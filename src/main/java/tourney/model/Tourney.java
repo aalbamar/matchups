@@ -33,32 +33,19 @@ public class Tourney {
 	
 	@Override
 	public String toString() {
-		String result = "Torneo no cargado.";
-		String teamsString = "";
-		String matchesString = "";
+		String json = "";
+		String teamsJson = "";
 		
 		if( teams != null && !teams.isEmpty() ) {
-			for (Team team : teams) {
-				teamsString += team.toString() + "\n";
+			for (int i = 0; i < teams.size(); i++) {
+				teamsJson += teams.get(i).toString();
+				if( i >= 0 && i < (teams.size() - 1) )
+					teamsJson += ", ";
 			}
 		}
 		
-		if( matches != null && !matches.isEmpty() ) {
-			for (Couple match : matches) {
-				matchesString += match.toString() + "\n";
-			}
-		}
+		json = "{\"teams\" : [" + teamsJson + "]}";
 		
-		if( !teamsString.equals("") ) {
-			result = "Equipos:" + "\n";
-			result += teamsString;
-			
-			if( !matchesString.equals("") ) {
-				result = "Emparejamientos:" + "\n";
-				result += matchesString;
-			}
-		}
-		
-		return result;
+		return json;
 	}
 }

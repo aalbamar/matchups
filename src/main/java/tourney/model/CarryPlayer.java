@@ -10,4 +10,9 @@ public class CarryPlayer extends Player {
 			  speed, skill,
 			  SPEEDSEEK, SKILLSEEK);
 	}
+
+	@Override
+	public PlayerType getType() {
+		return PlayerType.CARRY;
+	}
 }

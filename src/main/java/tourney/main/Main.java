@@ -71,12 +71,12 @@ public class Main {
 	}
 
 	private static OperationType parseOperation (String inputOperation) {
-		for (Enum<OperationType> commandType : OperationType.values()) {
-			if( OperationType.valueOf(commandType.name()).getInputOperation().equalsIgnoreCase(inputOperation) )
-				return OperationType.valueOf(commandType.name());
+		for (Enum<OperationType> operationType : OperationType.values()) {
+			if( OperationType.valueOf(operationType.name()).getInputOperation().equalsIgnoreCase(inputOperation) )
+				return OperationType.valueOf(operationType.name());
 		}
 		
-		return null;
+		return OperationType.UNKNOWN;
 	}
 
 	private static void runNewTourney() {
@@ -113,10 +113,10 @@ public class Main {
 					   "\t\t\t" + "Empareja equipos." + "\n" +
 					   "\t\t" + "top5e" + "\n" +
 					   "\t\t\t" + "Muestra los 5 mejores equipos." + "\n" +
-					   "\t\t" + "opt5j" + "\n" +
+					   "\t\t" + "top5j" + "\n" +
 					   "\t\t\t" + "Muestra los 5 mejores jugadores." + "\n" +
 					   "\t\t" + "ver" + "\n" +
-					   "\t\t\t" + "Visualiza los datos del torneo." + "\n";
+					   "\t\t\t" + "Visualiza los datos del torneo. Operación por defecto." + "\n";
 		
 		System.out.println(usage);
 	}

@@ -47,7 +47,7 @@ public class Team implements TeamBehavior {
 
 	@Override
 	public boolean isCompleted() {
-		return this.players != null ? this.players.size() == TeamBehavior.MAX_PLAYERS : false;
+		return this.players != null ? this.players.size() < TeamBehavior.MAX_PLAYERS : false;
 	}
 
 	/*
@@ -56,7 +56,7 @@ public class Team implements TeamBehavior {
 	@Override
 	public float getRank() {
 		float rank = 0;
-		if( players != null ) {
+		if( players != null && !players.isEmpty() ) {
 			float totalAbility = 0;
 			for (Player player : players) {
 				totalAbility += player.getAbility();
@@ -91,7 +91,7 @@ public class Team implements TeamBehavior {
 		if( players != null ) {
 			for (int i = 0; i < players.size(); i++) {
 				playersJson += players.get(i).toString();
-				if( i > 0 && i < (players.size() - 1) )
+				if( i >= 0 && i < (players.size() - 1) )
 					playersJson += ", ";
 				
 			}
@@ -99,7 +99,7 @@ public class Team implements TeamBehavior {
 		
 		json = "{\"id\" : " + id + ", " +
 			   "\"name\" : \"" + name + "\"" + ", " +
-			   "\"rank\" : " + getRank() + ", " +
+			   "\"rank\" : " + Float.valueOf(getRank()) + ", " +
 			   "\"players\" : [" + playersJson + "]}";
 		
 		return json;

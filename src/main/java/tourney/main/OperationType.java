@@ -4,8 +4,9 @@ public enum OperationType {
 	NEW_TOURNEY("nuevo"),
 	MATCHUP_TEAMS("emparejar"),
 	TOP5_TEAMS("top5e"),
-	TOP5_PLAYERS("opt5j"),
+	TOP5_PLAYERS("top5j"),
 	SHOW_TOURNEY("ver"),
+	DEFAULT(""),
 	UNKNOWN("");
 	
 	private String inputOperation = null;

@@ -10,4 +10,9 @@ public class CoachPlayer extends Player {
 			  speed, skill,
 			  SPEEDSEEK, SKILLSEEK);
 	}
+
+	@Override
+	public PlayerType getType() {
+		return PlayerType.COACH;
+	}
 }

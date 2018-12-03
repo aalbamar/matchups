@@ -8,8 +8,11 @@
 #Descripción
 Gestión de torneos.
 
+#Instalación
+`$ mvn -X -e -U -DskipTests=true clean verify install`
+
 #Uso
-`$ java -jar tourney.jar tourney.main.Main`
+`$ java -jar matchups-1.0.0.jar`
 
 #Operaciones
 * Nuevo torneo

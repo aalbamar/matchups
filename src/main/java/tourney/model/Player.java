@@ -4,7 +4,6 @@ import tourney.interfaces.PlayerBehavior;
 
 public abstract class Player implements PlayerBehavior {
 	private Integer id = null;
-	private PlayerType type = null;
 	private String name = null;
 	private String surname = null;
 	private Float speed = null;
@@ -28,6 +27,8 @@ public abstract class Player implements PlayerBehavior {
 	public Integer getId() {
 		return id;
 	}
+
+	public abstract PlayerType getType();
 
 	public String getName() {
 		return name;
@@ -109,11 +110,12 @@ public abstract class Player implements PlayerBehavior {
 		String json = null;
 		
 		json = "{\"id\" : " + id + ", " +
-			   "\"type\" : \"" + type + "\"" + ", " +
+			   "\"type\" : \"" + getType().name() + "\"" + ", " +
 			   "\"name\" : \"" + name + "\"" + ", " +
 			   "\"surname\" : \"" + surname + "\"" + ", " +
 			   "\"speed\" : " + speed + ", " +
-			   "\"skill\" : " + skill + "}";
+			   "\"skill\" : " + skill + ", " +
+			   "\"ability\" : " + Float.valueOf(getAbility()) + "}";
 		
 		return json;
 	}

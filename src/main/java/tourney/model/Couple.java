@@ -31,7 +31,7 @@ public class Couple {
 		String json = null;
 		
 		json = "{\"team1\" : " + team1.toString() + ", " +
-			   "\"team2\" : \"" + team2.toString() + "\"" + "}";
+			   "\"team2\" : " + team2.toString() + "}";
 		
 		return json;
 	}
