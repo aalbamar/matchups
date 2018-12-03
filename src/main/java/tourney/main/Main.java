@@ -29,9 +29,11 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		try {
+			System.out.print("$ ");
 			String input;
 			while( (input = br.readLine()) != null ) {
 				runOperation(input);
+				System.out.print("$ ");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

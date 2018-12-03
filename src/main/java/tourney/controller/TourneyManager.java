@@ -61,48 +61,67 @@ public class TourneyManager {
 	}
 
 	public static List<Couple> matchups() {
-		int c = 0;
-		int oddSize = tourney.getTeams().size() % 2 != 0 ? (tourney.getTeams().size() - 1 ) : tourney.getTeams().size();
-		while( c < oddSize) {
-			Couple couple = new Couple(tourney.getTeams().get(c++), tourney.getTeams().get(c++));
-			tourney.getMatches().add(couple);
+		if( tourney != null ) {
+			int c = 0;
+			int oddSize = tourney.getTeams().size() % 2 != 0 ? (tourney.getTeams().size() - 1 ) : tourney.getTeams().size();
+			while( c < oddSize) {
+				Couple couple = new Couple(tourney.getTeams().get(c++), tourney.getTeams().get(c++));
+				tourney.getMatches().add(couple);
+			}
+			
+			output = getMatchupsOutput(tourney.getMatches());
+			
+			return tourney.getMatches();
+		} else {
+			output = "Torneo no iniciado.";
+			
+			return null;
 		}
-		
-		output = getMatchupsOutput(tourney.getMatches());
-		
-		return tourney.getMatches();
 	}
 
 	public static List<Team> top5Teams() {
-		List<Team> top5Teams = new ArrayList<Team>();
+		List<Team> top5Teams = null;
 		
-		int t = 0;
-		int top5TeamsSize = tourney.getTeams().size() > 5 ? 5 : tourney.getTeams().size();
-		while( t < top5TeamsSize ) {
-			top5Teams.add(tourney.getTeams().get(t++));
-		}
-		
-		output = getTop5TeamsOutput(top5Teams);
+		if( tourney != null ) {
+			top5Teams = new ArrayList<Team>();
+			
+			int t = 0;
+			int top5TeamsSize = tourney.getTeams().size() > 5 ? 5 : tourney.getTeams().size();
+			while( t < top5TeamsSize ) {
+				top5Teams.add(tourney.getTeams().get(t++));
+			}
+			
+			output = getTop5TeamsOutput(top5Teams);
+		} else
+			output = "Torneo no iniciado.";
 		
 		return top5Teams;
 	}
 
 	public static List<Player> top5Players() {
-		List<Player> top5Player = new ArrayList<Player>();
+		List<Player> top5Player = null;
 		
-		int p = 0;
-		int top5PlayerSize = tourney.getPlayers().size() > 5 ? 5 : tourney.getPlayers().size();
-		while( p < top5PlayerSize ) {
-			top5Player.add(tourney.getPlayers().get(p++));
-		}
-		
-		output = getTop5PlayersOutput(top5Player);
+		if( tourney != null ) {
+			top5Player = new ArrayList<Player>();
+			
+			int p = 0;
+			int top5PlayerSize = tourney.getPlayers().size() > 5 ? 5 : tourney.getPlayers().size();
+			while( p < top5PlayerSize ) {
+				top5Player.add(tourney.getPlayers().get(p++));
+			}
+			
+			output = getTop5PlayersOutput(top5Player);
+		} else
+			output = "Torneo no iniciado.";
 		
 		return top5Player;
 	}
 	
 	public static String showTourney() {
-		return tourney.toString();
+		if( tourney != null )
+			return tourney.toString();
+		else
+			return "Torneo no iniciado.";
 	}
 	
 	private static String getMatchupsOutput(List<Couple> matches) {
