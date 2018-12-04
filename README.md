@@ -1,25 +1,40 @@
-#README.md
-**Tabla de contenido**
+# README.md
+## Tabla de Contenidos
 
-[TOCM]
+- [Descripcion](#descripcion)
+- [Instalacion](#instalacion)
+- [Uso](#uso)
 
-[TOC]
-
-#Descripción
+## Descripcion
 Gestión de torneos.
 
-#Instalación
-`$ mvn -X -e -U -DskipTests=true clean verify install`
+## Instalacion
+```sh
+$ mvn -X -e -U -DskipTests=true clean verify install
+```
 
-#Uso
-`$ java -jar matchups-1.0.0.jar`
-
-#Operaciones
+## Uso
+```sh
+$ java -jar matchups-1.0.0.jar
+```
+# Operaciones
 * Nuevo torneo
-`> nuevo`
+```sh
+$ nuevo
+```
 * Emparejar equipos
-`> emparejar`
+```sh
+$ emparejar
+```
 * 5 mejores equipos
-`> top5e`
+```sh
+$ top5e
+```
 * 5 mejores jugadores
-`> top5j`
+```sh
+$ top5j
+```
+* Mostrar datos torneo (equipo/jugadores)
+```sh
+$ ver
+```
