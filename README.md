@@ -4,6 +4,7 @@
 - [Descripcion](#descripcion)
 - [Instalacion](#instalacion)
 - [Uso](#uso)
+- [Operaciones](#operaciones)
 
 ## Descripcion
 Gestión de torneos.
@@ -17,7 +18,8 @@ $ mvn -X -e -U -DskipTests=true clean verify install
 ```sh
 $ java -jar matchups-1.0.0.jar
 ```
-# Operaciones
+
+## Operaciones
 * Nuevo torneo
 ```sh
 $ nuevo
