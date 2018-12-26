@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import tourney.common.Util;
 import tourney.model.Couple;
 import tourney.model.Player;
 import tourney.model.Team;
@@ -119,7 +120,7 @@ public class TourneyManager {
 	
 	public static String showTourney() {
 		if( tourney != null )
-			return tourney.toString();
+			return Util.formatJson(tourney.toString());
 		else
 			return "Torneo no iniciado.";
 	}
@@ -138,7 +139,7 @@ public class TourneyManager {
 		
 		json = "{\"matches\" : [" + matchesJson + "]}";
 		
-		return json;
+		return Util.formatJson(json);
 	}
 	
 	private static String getTop5TeamsOutput(List<Team> top5Teams) {
@@ -155,7 +156,7 @@ public class TourneyManager {
 		
 		json = "{\"top5Teams\" : [" + top5TeamsJson + "]}";
 		
-		return json;
+		return Util.formatJson(json);
 	}
 	
 	private static String getTop5PlayersOutput(List<Player> top5Players) {
@@ -172,6 +173,6 @@ public class TourneyManager {
 		
 		json = "{\"top5Players\" : [" + top5PlayersJson + "]}";
 		
-		return json;
+		return Util.formatJson(json);
 	}
 }
